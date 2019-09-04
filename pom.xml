@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.1.RELEASE</version>
+        <groupId>com.gzs.learn</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <groupId>cn.stylefeng</groupId>
@@ -35,8 +34,7 @@
     </properties>
 
     <dependencies>
-
-        <!--核心组件-->
+        <!--核心组件 -->
         <dependency>
             <groupId>cn.stylefeng.roses</groupId>
             <artifactId>kernel-core</artifactId>
@@ -46,38 +44,42 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql-connector-java.version}</version>
         </dependency>
 
-        <!--spring boot依赖-->
+        <!--spring boot依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
+        
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
+        
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
+        
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
 
-        <!--shiro依赖和缓存-->
+        <!--shiro依赖和缓存 -->
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-core</artifactId>
@@ -89,11 +91,13 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
             <version>${shiro.version}</version>
         </dependency>
+        
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-ehcache</artifactId>
@@ -109,39 +113,41 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        
         <dependency>
             <groupId>net.sf.ehcache</groupId>
             <artifactId>ehcache</artifactId>
-            <version>${ehcache2.version}</version>
+            <version>${ehcache2.version}</version><!--$NO-MVN-MAN-VER$-->
         </dependency>
 
-        <!--验证码-->
+        <!--验证码 -->
         <dependency>
             <groupId>com.github.penggle</groupId>
             <artifactId>kaptcha</artifactId>
             <version>${kaptcha.version}</version>
         </dependency>
 
-        <!--beetl模板引擎-->
+        <!--beetl模板引擎 -->
         <dependency>
             <groupId>com.ibeetl</groupId>
             <artifactId>beetl</artifactId>
             <version>${beetl.version}</version>
         </dependency>
 
-        <!--swagger-->
+        <!--swagger -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
             <version>${swagger.version}</version>
         </dependency>
+        
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${swagger.version}</version>
         </dependency>
 
-        <!--jwt token-->
+        <!--jwt token -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
@@ -154,21 +160,21 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- 多数据源事务管理-->
+        <!-- 多数据源事务管理 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jta-atomikos</artifactId>
         </dependency>
 
-        <!--需要分布式session的话需要放开注释-->
-        <!--<dependency>-->
-        <!--<groupId>org.springframework.session</groupId>-->
-        <!--<artifactId>spring-session-data-redis</artifactId>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>org.springframework.boot</groupId>-->
-        <!--<artifactId>spring-boot-starter-data-redis</artifactId>-->
-        <!--</dependency>-->
+        <!--需要分布式session的话需要放开注释 -->
+        <!--<dependency> -->
+        <!--<groupId>org.springframework.session</groupId> -->
+        <!--<artifactId>spring-session-data-redis</artifactId> -->
+        <!--</dependency> -->
+        <!--<dependency> -->
+        <!--<groupId>org.springframework.boot</groupId> -->
+        <!--<artifactId>spring-boot-starter-data-redis</artifactId> -->
+        <!--</dependency> -->
     </dependencies>
 
     <build>
@@ -177,7 +183,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>

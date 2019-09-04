@@ -69,7 +69,6 @@ public class LogAop {
     }
 
     private void handle(ProceedingJoinPoint point) throws Exception {
-
         //获取拦截的方法名
         Signature sig = point.getSignature();
         MethodSignature msig = null;
@@ -95,7 +94,7 @@ public class LogAop {
         BussinessLog annotation = currentMethod.getAnnotation(BussinessLog.class);
         String bussinessName = annotation.value();
         String key = annotation.key();
-        Class dictClass = annotation.dict();
+        Class<?> dictClass = annotation.dict();
 
         StringBuilder sb = new StringBuilder();
         for (Object param : params) {

@@ -73,7 +73,7 @@ public class LoginLogController extends BaseController {
                        @RequestParam(required = false) String logName) {
 
         //获取分页参数
-        Page page = LayuiPageFactory.defaultPage();
+        Page<?> page = LayuiPageFactory.defaultPage();
 
         //根据条件查询日志
         List<Map<String, Object>> result = loginLogService.getLoginLogs(page, beginTime, endTime, logName);

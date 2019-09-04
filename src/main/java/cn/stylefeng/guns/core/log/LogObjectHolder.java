@@ -31,7 +31,10 @@ import java.io.Serializable;
 @Component
 @Scope(scopeName = WebApplicationContext.SCOPE_SESSION)
 public class LogObjectHolder implements Serializable {
-
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     private Object object = null;
 
     public void set(Object obj) {

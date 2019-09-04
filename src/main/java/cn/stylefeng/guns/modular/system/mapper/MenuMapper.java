@@ -26,7 +26,8 @@ public interface MenuMapper extends BaseMapper<Menu> {
      * @return
      * @date 2017年2月12日 下午9:14:34
      */
-    Page<Map<String, Object>> selectMenus(@Param("page") Page page, @Param("condition") String condition, @Param("level") String level, @Param("menuId") Long menuId, @Param("code") String code);
+    Page<Map<String, Object>> selectMenus(@Param("page") Page<?> page, @Param("condition") String condition, @Param("level") String level,
+            @Param("menuId") Long menuId, @Param("code") String code);
 
     /**
      * 根据条件查询菜单
@@ -86,6 +87,5 @@ public interface MenuMapper extends BaseMapper<Menu> {
      * @Date 2019/2/23 22:03
      */
     List<Map<String, Object>> selectMenuTree(@Param("condition") String condition, @Param("level") String level);
-
 
 }

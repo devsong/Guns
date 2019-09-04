@@ -32,7 +32,7 @@ public class LayuiPageInfo {
 
     private String msg = "请求成功";
 
-    private List data;
+    private List<?> data;
 
     private long count;
 

@@ -15,17 +15,9 @@
  */
 package cn.stylefeng.guns.core.shiro.service.impl;
 
-import cn.hutool.core.convert.Convert;
-import cn.stylefeng.guns.core.common.constant.factory.ConstantFactory;
-import cn.stylefeng.guns.core.common.constant.state.ManagerStatus;
-import cn.stylefeng.guns.core.shiro.ShiroKit;
-import cn.stylefeng.guns.core.shiro.ShiroUser;
-import cn.stylefeng.guns.core.shiro.service.UserAuthService;
-import cn.stylefeng.guns.modular.system.entity.User;
-import cn.stylefeng.guns.modular.system.mapper.MenuMapper;
-import cn.stylefeng.guns.modular.system.mapper.UserMapper;
-import cn.stylefeng.guns.modular.system.service.UserService;
-import cn.stylefeng.roses.core.util.SpringContextHolder;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.shiro.authc.CredentialsException;
 import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
@@ -36,22 +28,26 @@ import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
+import cn.hutool.core.convert.Convert;
+import cn.stylefeng.guns.core.common.constant.factory.ConstantFactory;
+import cn.stylefeng.guns.core.common.constant.state.ManagerStatus;
+import cn.stylefeng.guns.core.shiro.ShiroKit;
+import cn.stylefeng.guns.core.shiro.ShiroUser;
+import cn.stylefeng.guns.core.shiro.service.UserAuthService;
+import cn.stylefeng.guns.modular.system.entity.User;
+import cn.stylefeng.guns.modular.system.mapper.MenuMapper;
+import cn.stylefeng.guns.modular.system.mapper.UserMapper;
+import cn.stylefeng.roses.core.util.SpringContextHolder;
 
 @Service
 @DependsOn("springContextHolder")
 @Transactional(readOnly = true)
 public class UserAuthServiceServiceImpl implements UserAuthService {
-
     @Autowired
     private UserMapper userMapper;
 
     @Autowired
     private MenuMapper menuMapper;
-
-    @Autowired
-    private UserService userService;
 
     public static UserAuthService me() {
         return SpringContextHolder.getBean(UserAuthService.class);
@@ -78,10 +74,10 @@ public class UserAuthServiceServiceImpl implements UserAuthService {
 
         ShiroUser shiroUser = ShiroKit.createShiroUser(user);
 
-        //用户角色数组
+        // 用户角色数组
         Long[] roleArray = Convert.toLongArray(user.getRoleId());
 
-        //获取用户角色列表
+        // 获取用户角色列表
         List<Long> roleList = new ArrayList<>();
         List<String> roleNameList = new ArrayList<>();
         for (Long roleId : roleArray) {

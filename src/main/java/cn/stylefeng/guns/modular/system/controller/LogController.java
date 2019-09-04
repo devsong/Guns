@@ -72,16 +72,15 @@ public class LogController extends BaseController {
     @RequestMapping("/list")
     @Permission(Const.ADMIN_NAME)
     @ResponseBody
-    public Object list(@RequestParam(required = false) String beginTime,
-                       @RequestParam(required = false) String endTime,
-                       @RequestParam(required = false) String logName,
-                       @RequestParam(required = false) Integer logType) {
+    public Object list(@RequestParam(required = false) String beginTime, @RequestParam(required = false) String endTime,
+            @RequestParam(required = false) String logName, @RequestParam(required = false) Integer logType) {
 
-        //获取分页参数
-        Page page = LayuiPageFactory.defaultPage();
+        // 获取分页参数
+        Page<?> page = LayuiPageFactory.defaultPage();
 
-        //根据条件查询操作日志
-        List<Map<String, Object>> result = operationLogService.getOperationLogs(page, beginTime, endTime, logName, BizLogType.valueOf(logType));
+        // 根据条件查询操作日志
+        List<Map<String, Object>> result = operationLogService.getOperationLogs(page, beginTime, endTime, logName,
+                BizLogType.valueOf(logType));
 
         page.setRecords(new LogWrapper(result).wrap());
 

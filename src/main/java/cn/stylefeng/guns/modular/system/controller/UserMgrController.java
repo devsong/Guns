@@ -191,12 +191,12 @@ public class UserMgrController extends BaseController {
 
         if (ShiroKit.isAdmin()) {
             Page<Map<String, Object>> users = userService.selectUsers(null, name, beginTime, endTime, deptId);
-            Page wrapped = new UserWrapper(users).wrap();
+            Page<?> wrapped = new UserWrapper(users).wrap();
             return LayuiPageFactory.createPageInfo(wrapped);
         } else {
             DataScope dataScope = new DataScope(ShiroKit.getDeptDataScope());
             Page<Map<String, Object>> users = userService.selectUsers(dataScope, name, beginTime, endTime, deptId);
-            Page wrapped = new UserWrapper(users).wrap();
+            Page<?> wrapped = new UserWrapper(users).wrap();
             return LayuiPageFactory.createPageInfo(wrapped);
         }
     }

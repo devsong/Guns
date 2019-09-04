@@ -27,6 +27,7 @@ import java.util.List;
  * @date 2017年2月17日 下午8:25:14
  */
 @Data
+@SuppressWarnings("rawtypes")
 public class TreeviewNode implements Tree {
 
     /**

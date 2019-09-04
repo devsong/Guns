@@ -26,7 +26,7 @@ public interface DictMapper extends BaseMapper<Dict> {
     /**
      * 查询字典列表
      */
-    Page<Map<String, Object>> list(@Param("page") Page page, @Param("condition") String conditiion);
+    Page<Map<String, Object>> list(@Param("page") Page<?> page, @Param("condition") String conditiion);
 
     /**
      * 根据父类编码获取词典列表

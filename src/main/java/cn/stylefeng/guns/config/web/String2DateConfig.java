@@ -11,12 +11,6 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 import javax.annotation.PostConstruct;
 import java.util.Date;
 
-/**
- * 默认的string to date的转化
- *
- * @author fengshuonan
- * @Date 2019/2/12 20:09
- */
 @Configuration
 public class String2DateConfig {
 
